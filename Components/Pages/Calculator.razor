@@ -24,6 +24,7 @@
         <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="Division">/</button>
         <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="Multiplication">*</button>
         <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="Equals">=</button>
+        <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="AllClear">AC</button>
     </div>
 </div>
 
@@ -102,5 +103,12 @@
         operation = "Equals";
         operand = "";
         equation = result.ToString();
+    }
+
+    private void AllClear(){
+        operand = "";
+        result = 0;
+        operation = "Addition";
+        equation = "";
     }
 }

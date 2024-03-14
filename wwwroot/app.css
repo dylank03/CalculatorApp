@@ -6,17 +6,6 @@ a, .btn-link {
     color: #006bb7;
 }
 
-.calculator{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.btn-container{
-    display: block;
-    width: 500px;
-}
-
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;
@@ -37,6 +26,17 @@ a, .btn-link {
 
 h1:focus {
     outline: none;
+}
+
+.btn-container{
+    display:block;
+    width: 500px;
+}
+
+.calculator{
+    display:block;
+    margin: auto;
+    justify-content: center;
 }
 
 .screen{

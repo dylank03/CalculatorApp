@@ -27,3 +27,4 @@
 /home/dylan/Northcoders/post-grad-projects/C#/calculator/CalculatorApp/obj/Debug/net8.0/CalculatorApp.genruntimeconfig.cache
 /home/dylan/Northcoders/post-grad-projects/C#/calculator/CalculatorApp/obj/Debug/net8.0/ref/CalculatorApp.dll
 /home/dylan/Northcoders/post-grad-projects/C#/calculator/CalculatorApp/obj/Debug/net8.0/scopedcss/Components/Layout/MainLayout.razor.rz.scp.css
+/home/dylan/Northcoders/post-grad-projects/C#/calculator/CalculatorApp/obj/Debug/net8.0/CalculatorApp.sourcelink.json

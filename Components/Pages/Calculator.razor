@@ -1,0 +1,106 @@
+﻿@page "/calculator"
+@rendermode InteractiveServer
+
+<PageTitle>Calculator</PageTitle>
+
+<h1>Calculator</h1>
+
+<div class= "calculator">
+    <div class = "screen">@equation</div>
+
+    <div class = "btn-container">
+        <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="@(()=> {string digit = "0"; TypeInt(digit);})">0</button>
+        <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="@(()=> {string digit = "1"; TypeInt(digit);})">1</button>
+        <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="@(()=> {string digit = "2"; TypeInt(digit);})">2</button>
+        <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="@(()=> {string digit = "3"; TypeInt(digit);})">3</button>
+        <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="@(()=> {string digit = "4"; TypeInt(digit);})">4</button>
+        <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="@(()=> {string digit = "5"; TypeInt(digit);})">5</button>
+        <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="@(()=> {string digit = "6"; TypeInt(digit);})">6</button>
+        <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="@(()=> {string digit = "7"; TypeInt(digit);})">7</button>
+        <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="@(()=> {string digit = "8"; TypeInt(digit);})">8</button>
+        <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="@(()=> {string digit = "9"; TypeInt(digit);})">9</button>
+        <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="Addition">+</button>
+        <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="Subtraction">-</button>
+        <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="Division">/</button>
+        <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="Multiplication">*</button>
+        <button disabled="@(equation.Length > 15 ? true : false)" class="btn btn-primary" @onclick="Equals">=</button>
+    </div>
+</div>
+
+@code {
+    public string operand = "";
+
+    private int result = 0;
+
+    private string operation = "Addition";
+
+    private string equation = "";
+
+    private void TypeInt(string digit)
+    {   
+        if(operation == "Equals"){
+            result = 0;
+            operation = "Addition";
+            equation = "";
+        }
+        operand += digit;
+        equation += digit;
+    }
+
+    private void Addition()
+    {   
+        equation += "+";
+        Calculate();
+        operand = "";
+        operation = "Addition";
+    }
+
+    private void Subtraction()
+    {
+        equation += "-";
+        Calculate();
+        operand = "";
+        operation = "Subtraction";
+    }
+
+    private void Division()
+    {
+        equation += "/";
+        Calculate();
+        operand = "";
+        operation = "Division";
+    }
+
+    private void Multiplication()
+    {
+        equation += "*";
+        Calculate();
+        operand = "";
+        operation = "Multiplication";
+    }
+
+    private void Calculate()
+    {   
+        switch(operation)
+        {
+        case("Addition"):
+            result += Int32.Parse(operand);
+            break;
+        case("Subtraction"):
+            result -= Int32.Parse(operand);
+            break;
+        case("Division"):
+            result /= Int32.Parse(operand);
+            break;
+        case("Multiplication"):
+            result *= Int32.Parse(operand);
+            break;
+        }
+    }
+    private void Equals(){
+        Calculate();
+        operation = "Equals";
+        operand = "";
+        equation = result.ToString();
+    }
+}
